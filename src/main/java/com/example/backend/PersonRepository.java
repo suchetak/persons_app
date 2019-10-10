@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PersonRepository extends CrudRepository<Person, String> {
 
-	@Query("SELECT p FROM Person p WHERE p.firstName = ?1 OR p.lastName=?1")
+	@Query("SELECT p FROM Person p WHERE UPPER(p.firstName) LIKE %?1% OR UPPER(p.lastName) LIKE %?1%")
 	List<Person> findByFirstNameOrLastName(String name);
 }

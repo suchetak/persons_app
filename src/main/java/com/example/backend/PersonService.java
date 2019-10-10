@@ -22,7 +22,7 @@ public class PersonService {
 	}
 
 	public List<Person> getPersonByName(String name) {
-		return personRepository.findByFirstNameOrLastName(name);
+		return personRepository.findByFirstNameOrLastName(name.toUpperCase());
 	}
 
 }
